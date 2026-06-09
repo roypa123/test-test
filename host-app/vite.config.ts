@@ -7,22 +7,21 @@ export default defineConfig({
   plugins: [
     react(),
     federation({
-      name: "products",
-      filename: "remoteEntry.js",
+      name: "host",
 
-      exposes: {
-        "./ProductsPage": "./src/ProductsPage.tsx",
+
+      remotes: {
+        products: "http://localhost:5001/assets/remoteEntry.js",
+        users: "http://localhost:5002/assets/remoteEntry.js",
       },
 
       shared: ["react", "react-dom"],
     }),
 
   ],
-  build: {
-    target: "esnext",
-  },
+
 
   server: {
-    port: 5001,
+    port: 5000,
   },
 })

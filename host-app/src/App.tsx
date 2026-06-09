@@ -1,13 +1,22 @@
-
+import React, { Suspense } from "react";
 import './App.css'
+
+const ProductsPage = React.lazy(
+  () => import("products/ProductsPage")
+);
+
+const UsersPage = React.lazy(
+  () => import("users/UsersPage")
+)
 
 function App() {
 
 
   return (
-    <div>
-     Products App Running
-    </div>
+     <Suspense fallback={<div>Loading...</div>}>
+      <ProductsPage />
+      <UsersPage />
+    </Suspense>
   )
 }
 
