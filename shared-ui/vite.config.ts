@@ -12,7 +12,7 @@ export default defineConfig({
       filename: "remoteEntry.js",
 
       exposes: {
-        "./components": "./src/index.ts",
+        "./Button": "./src/Button.ts",
       },
 
       shared: ["react", "react-dom"],
