@@ -12,7 +12,7 @@ export default defineConfig({
       filename: "remoteEntry.js",
 
       exposes: {
-        "./Button": "./src/Button.ts",
+        "./Button": "./src/Button.tsx",
       },
 
       shared: ["react", "react-dom"],
@@ -21,6 +21,10 @@ export default defineConfig({
   ],
 
   server: {
+    port: 5003,
+  },
+
+  preview: {
     port: 5003,
   },
 

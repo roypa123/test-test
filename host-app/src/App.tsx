@@ -1,19 +1,46 @@
 import React, { Suspense } from "react";
 import './App.css'
 
-
-
-
 const Button = React.lazy(() => import("sharedui/Button"));
 
+const ProductsPage = React.lazy(
+  () => import("products/ProductsPage")
+);
+
+const UsersPage = React.lazy(
+  () => import("users/UsersPage")
+)
+
+class ErrorBoundary extends React.Component<
+  { children: React.ReactNode },
+  { hasError: boolean; message: string }
+> {
+  state = { hasError: false, message: "" };
+  static getDerivedStateFromError(error: Error) {
+    return { hasError: true, message: error.message };
+  }
+  render() {
+    if (this.state.hasError) {
+      return <div>Failed to load remote: {this.state.message}</div>;
+    }
+    return this.props.children;
+  }
+}
+
 function App() {
-
-
   return (
-     <Suspense fallback={<div>Loading...</div>}>
-   
-       <Button />
-    </Suspense>
+    <div>
+      test
+      <ErrorBoundary>
+        <Suspense fallback={<div>Loading...</div>}>
+          hello
+          <Button title="Click me" />
+          <ProductsPage />
+          <UsersPage />
+          
+        </Suspense>
+      </ErrorBoundary>
+    </div>
   )
 }
 
