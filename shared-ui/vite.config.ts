@@ -1,20 +1,44 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+import federation from "@originjs/vite-plugin-federation";
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [react()],
+  plugins: [
+    react(),
+    federation({
+      name: "sharedui",
+
+      filename: "remoteEntry.js",
+
+      exposes: {
+        "./components": "./src/index.ts",
+      },
+
+      shared: ["react", "react-dom"],
+    })
+
+  ],
+
+    server: {
+    port: 5003,
+  },
 
   build: {
-    lib: {
-      entry: "src/index.ts",
-      name: "SharedUI",
-      fileName: "shared-ui",
-    },
+    target: "esnext",
+  }
 
-    rollupOptions: {
-      external: ["react", "react-dom"],
-    },
-  },
+
+  // build: {
+  //   lib: {
+  //     entry: "src/index.ts",
+  //     name: "SharedUI",
+  //     fileName: "shared-ui",
+  //   },
+
+  //   rollupOptions: {
+  //     external: ["react", "react-dom"],
+  //   },
+  // },
 
 })
