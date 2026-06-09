@@ -1,0 +1,10 @@
+{
+  "name": "workspace",
+  "private": true,
+  "workspaces": [
+    "host-app",
+    "products-app",
+    "users-app",
+    "shared-ui"
+  ]
+}
