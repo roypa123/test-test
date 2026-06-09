@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import federation from "@originjs/vite-plugin-federation";
+import path from "path";
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -19,6 +20,12 @@ export default defineConfig({
     }),
 
   ],
+
+  resolve: {
+    alias: {
+      "@/shared-ui": path.resolve(__dirname, "../shared-ui/src/index.ts"),
+    },
+  },
 
   server: {
     port: 5000,

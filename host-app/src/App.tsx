@@ -34,7 +34,7 @@ function App() {
       <ErrorBoundary>
         <Suspense fallback={<div>Loading...</div>}>
           hello
-          <Button title="Click me" />
+          <Button />
           <ProductsPage />
           <UsersPage />
           
