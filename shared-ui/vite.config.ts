@@ -31,18 +31,4 @@ export default defineConfig({
   build: {
     target: "esnext",
   }
-
-
-  // build: {
-  //   lib: {
-  //     entry: "src/index.ts",
-  //     name: "SharedUI",
-  //     fileName: "shared-ui",
-  //   },
-
-  //   rollupOptions: {
-  //     external: ["react", "react-dom"],
-  //   },
-  // },
-
 })

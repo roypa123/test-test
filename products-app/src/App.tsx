@@ -6,7 +6,7 @@ function App() {
 
   return (
     <div>
-     Products Micro Frontend
+     Products Micro Frontend 1
     </div>
   )
 }

@@ -9,7 +9,6 @@ export default defineConfig({
     federation({
       name: "host",
 
-
       remotes: {
         products: "http://localhost:5001/assets/remoteEntry.js",
         users: "http://localhost:5002/assets/remoteEntry.js",
@@ -21,13 +20,8 @@ export default defineConfig({
 
   ],
 
-
   server: {
     port: 5000,
-  },
-
-  optimizeDeps: {
-    exclude: ["sharedui", "products", "users"],
   },
 
   build: {
